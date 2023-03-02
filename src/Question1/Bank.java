@@ -1,4 +1,6 @@
- abstract class Bank {
+package Question1;
+
+abstract class Bank {
     private String name;
     private String headOfficeAddress;
     private String chairmanName;
@@ -78,13 +80,13 @@
 
     //@Override
     public String toString() {
-        return "Bank" + "name='" + name + ", headOfficeAddress='" + headOfficeAddress + ", chairmanName='" + chairmanName +
+        return "Question1.Bank" + "name='" + name + ", headOfficeAddress='" + headOfficeAddress + ", chairmanName='" + chairmanName +
                 ", branchCount=" + branchCount + ", fdInterestRate=" + fdInterestRate + ", personalLoanInterestRate=" + personalLoanInterestRate +
                 ", homeLoanInterestRate=" + homeLoanInterestRate ;
     }
 
     public static void main(String[] args) {
-        SBI sb= new SBI("State Bank of India",
+        SBI sb= new SBI("State Question1.Bank of India",
                 "kolkata","raman",100,
                 7,7.6,13);
         System.out.println(sb.getBranchCount());
@@ -107,7 +109,7 @@ class SBI extends Bank {
     }
 }
 
-// Subclass BOI
+// Subclass Question1.BOI
 class BOI extends Bank {
     public BOI(String name, String headOfficeAddress, String chairmanName, int branchCount,
                double fdInterestRate, double personalLoanInterestRate, double homeLoanInterestRate) {
