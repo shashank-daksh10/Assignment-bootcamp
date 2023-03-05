@@ -9,6 +9,9 @@ abstract class Bank {
     private double personalLoanInterestRate;
     private double homeLoanInterestRate;
 
+    public Bank() {
+    }
+
     public Bank(String name, String headOfficeAddress, String chairmanName, int branchCount,
                 double fdInterestRate, double personalLoanInterestRate, double homeLoanInterestRate) {
         this.name = name;
@@ -78,17 +81,30 @@ abstract class Bank {
     }
 
 
-    //@Override
+    @Override
     public String toString() {
-        return "Question1.Bank" + "name='" + name + ", headOfficeAddress='" + headOfficeAddress + ", chairmanName='" + chairmanName +
-                ", branchCount=" + branchCount + ", fdInterestRate=" + fdInterestRate + ", personalLoanInterestRate=" + personalLoanInterestRate +
-                ", homeLoanInterestRate=" + homeLoanInterestRate ;
+        return "Bank{" +
+                "name='" + name + '\'' +
+                ", headOfficeAddress='" + headOfficeAddress + '\'' +
+                ", chairmanName='" + chairmanName + '\'' +
+                ", branchCount=" + branchCount +
+                ", fdInterestRate=" + fdInterestRate +
+                ", personalLoanInterestRate=" + personalLoanInterestRate +
+                ", homeLoanInterestRate=" + homeLoanInterestRate +
+                '}';
     }
 
     public static void main(String[] args) {
-        SBI sb= new SBI("State Question1.Bank of India",
+        SBI sb= new SBI("State Bank of India",
                 "kolkata","raman",100,
-                7,7.6,13);
+                7,7.6,8.9);
+
+        // calling the default constructor
+       SBI sb1 = new SBI();
+       sb1.setName("purushottam");
+
+
+
         System.out.println(sb.getBranchCount());
         System.out.println(sb.getChairmanName());
         System.out.println(sb.getName());
@@ -105,6 +121,10 @@ class SBI extends Bank {
     public SBI(String name, String headOfficeAddress, String chairmanName, int branchCount,
                double fdInterestRate, double personalLoanInterestRate, double homeLoanInterestRate) {
         super(name, headOfficeAddress, chairmanName, branchCount, fdInterestRate, personalLoanInterestRate, homeLoanInterestRate);
+
+    }
+
+    public SBI() {
 
     }
 }
