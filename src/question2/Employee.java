@@ -61,10 +61,9 @@ public class Employee{
 }
 class sortbyname implements Comparator<Employee>{
     public int compare(Employee a,Employee b){
-        if(a.firstname.charAt(0)==b.firstname.charAt(0)){
-            return a.lastname.charAt(0)-b.lastname.charAt(0)>0?1:-1;
-        }
-
-        return a.firstname.compareTo(b.firstname);
+      if(a.firstname.compareTo(b.firstname)==0){
+          return a.lastname.compareTo(b.lastname);
+      }
+      return a.firstname.compareTo(b.lastname);
     }
 }

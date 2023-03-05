@@ -12,9 +12,9 @@ public class Main {
         l1.add(new Employee(34.3,20100.7,"wahid","khan"));
         l1.add(new Employee(33.6,20000.8,"abhinav","daksh"));
         l1.add(new Employee(33.8,9000.9,"abhilash","dhawan"));
-       // Collections.sort(l1,new sortbyname());
-        Collections.sort(l1,(a,b)->a.firstname.charAt(0)==b.firstname.charAt(0)?a.lastname.charAt(0)-
-                b.lastname.charAt(0):a.firstname.charAt(0)-b.firstname.charAt(0));
+        Collections.sort(l1,new sortbyname());
+//        Collections.sort(l1,(a,b)->a.firstname.charAt(0)==b.firstname.charAt(0)?a.lastname.charAt(0)-
+//                b.lastname.charAt(0):a.firstname.charAt(0)-b.firstname.charAt(0));
 
         System.out.println(l1);
 
