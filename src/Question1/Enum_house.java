@@ -37,23 +37,23 @@ public class Enum_house {
                 "Flat"+"\n"+"Apartment"+"\n"+"Vila"+"\n"+"Mansion"+"\n");
         System.out.println("enter a house type :");
         String user_input = sc.nextLine();
-        House h1 = House.valueOf(user_input.toUpperCase());
-        System.out.print("Cost of " + h1.getName() + " is: Rs ");
+        String h1 = user_input.toUpperCase();
+        System.out.print("Cost of " + h1 + " is: Rs ");
 
         switch (h1) {
-            case FLAT -> {
+            case "FLAT"-> {
                 House flat = House.FLAT;
                 System.out.println(flat.getPrice());
             }
-            case APARTMENT -> {
+            case "APARTMENT" -> {
                 House apartment = House.APARTMENT;
                 System.out.println(apartment.getPrice());
             }
-            case VILA -> {
+            case "VILA" -> {
                 House vila = House.VILA;
                 System.out.println(vila.getPrice());
             }
-            case MANSION -> {
+            case "MANSION" -> {
                 House mansion = House.MANSION;
                 System.out.println(mansion.getPrice());
             }
