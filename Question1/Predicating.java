@@ -14,6 +14,7 @@ public class Predicating {
      l1.add(new Car("Maruti","celerio",34520));
      l1.add(new Car("Renault","Quid",1000000));
 
+
         System.out.println(l1);
 
         MyPredicate<Car>m1=a->a.getBrand().contains("M");
