@@ -2,6 +2,8 @@ package Question2;
 class volt{
    volatile int val=0;
     public synchronized void add(){
+        System.out.println(Thread.currentThread().getName()+" "+ val);
+
         val++;
         System.out.println(Thread.currentThread().getName()+" "+ val);
     }
