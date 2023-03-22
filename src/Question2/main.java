@@ -15,7 +15,9 @@ class bank extends Thread{//can remove "extend thread" here.
             bal+=amt;
             System.out.println(Thread.currentThread().getName() + "  lock acquired and balance is "
                     + bal);
-        } finally {
+        }
+
+        finally {
             System.out.println(Thread.currentThread().getName() + " lock released");
             lock.unlock();
         }
@@ -56,7 +58,7 @@ public class main{
         Thread t2 = new Thread(new Runnable() {
             @Override
             public void run() {
-                b.updateBalnace(100);
+                b.updateBalnace(-100);
                 b.withdraw(20);
             }
         });

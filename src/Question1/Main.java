@@ -3,14 +3,14 @@ package Question1;
 import java.util.Random;
 import java.util.concurrent.Callable;
 
-class testcall implements Callable {
+class testcall implements Callable<Integer>{
   int num ;
   public testcall(int num){
       this.num=num;
   }
     @Override
-    public Object call() throws Exception {
-        return (int)num+ Math.random();
+    public Integer call() throws Exception {
+        return (int) (num+ Math.random());
     }
 }
 
@@ -31,7 +31,28 @@ public class Main {
                return x*y;
            }
        };
+//       Callable<Integer>r=()->{  // using lambda
+//         return 20;
+//       };
         Integer result = call.call();
         System.out.println(result);
+//        Thread x1=new Thread(()->{
+//            try {
+//                Integer val = t1.call();
+//                System.out.println(val);
+//            } catch (Exception e) {
+//                throw new RuntimeException(e);
+//            }
+//        });
+//        Thread x2=new Thread(()->{
+//            try {
+//                Integer val = t1.call();
+//                System.out.println(val);
+//            } catch (Exception e) {
+//                throw new RuntimeException(e);
+//            }
+//        });
+//        x1.start();
+//        x2.start();
     }
 }
