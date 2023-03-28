@@ -8,6 +8,7 @@ public class Main {
     public static void main(String[] args) {
         ApplicationContext application = SpringApplication.run(Main.class,args);
         profitLoss pl= application.getBean(profitLoss.class);
+
         System.out.println(pl);//Question4
 
         int result =pl.WinOrloose(50,44);

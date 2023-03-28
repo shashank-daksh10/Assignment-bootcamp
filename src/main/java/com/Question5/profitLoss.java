@@ -34,7 +34,14 @@ public class profitLoss {
         this.obj=obj;
     }
 
-    public int WinOrloose(int a,int b){
+    @Override
+    public String toString() {
+        return "profitLoss{" +
+                "obj=" + obj +
+                '}';
+    }
+
+    public int WinOrloose(int a, int b){
         int ans = obj.up(a,b);
         return ans;
     }

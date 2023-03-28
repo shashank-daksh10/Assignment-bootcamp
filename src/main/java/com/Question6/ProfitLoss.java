@@ -30,6 +30,18 @@ public class ProfitLoss{
     public ProfitLoss(operation op){
         this.op=op;
     }
+
+    public void setOp(operation op) {
+        this.op = op;
+    }
+
+    @Override
+    public String toString() {
+        return "ProfitLoss{" +
+                "op=" + op +
+                '}';
+    }
+
     public int calculation(int a , int b){
         int ans =op.operate(a,b);
         return ans;
