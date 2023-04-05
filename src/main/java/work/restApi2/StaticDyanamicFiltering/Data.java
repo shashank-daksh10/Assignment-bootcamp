@@ -8,7 +8,7 @@ public class Data {
     private String name;
     private int age;
 
-    @JsonIgnore
+     @JsonIgnore
     private String password;
 
     public Data() {

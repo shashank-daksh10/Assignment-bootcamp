@@ -12,7 +12,6 @@ import java.util.Locale;
 @RestController
 public class PrintHello {
 
-
     @GetMapping("/hello/{name}")
     public String get(@PathVariable String name){
 

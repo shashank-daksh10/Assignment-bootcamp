@@ -1,26 +1,44 @@
 package work.restApi2.section2;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
 public class Mappinguser {
 
-    //*********commented the dependency of jakson so that no error occur in future Question
-    List<User>l1=new ArrayList<>();
+    @Autowired
+    UserController1 uc;
 
-    @GetMapping("/userval")
-    public List<User>getuser(){
-        return l1;
+
+    //*********commented the dependency of jakson so that no error occur in future Question
+
+    @Operation(summary = "Get Users Details")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "details added Successfully.",
+                    content = {@Content(mediaType = "application/json",
+                            schema = @Schema(implementation = User.class))})})
+
+
+    @GetMapping("/user-val")
+    public List<User> getUser() {
+        return uc.getUser();
     }
-    @PostMapping("/userval")
-    public String adduser(@RequestBody User u){
-        l1.add(u);
+
+    @PostMapping("/user-val")
+    public String addUser(@RequestBody User u) {
+        uc.addUser(u);
         return "user Added";
+    }
+
+    @DeleteMapping("/user-val/{id}")
+    public String deletedValue(@PathVariable int id) {
+        return uc.deleteUser(id);
     }
 }

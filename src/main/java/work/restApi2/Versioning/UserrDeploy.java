@@ -1,55 +1,77 @@
 package work.restApi2.Versioning;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-import work.restApi2.section2.User;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @RestController
 public class UserrDeploy {
-    List<User1>l1=new ArrayList<>();
-    List<AdvanceUser>l2=new ArrayList<>();
+
+    @Autowired
+    UserController ud;
+
     @GetMapping("/v1/user")
-    public List<User1>getversion1(){
-        return l1;
+    public List<User1>GetVersion1(){
+       return ud.getUser1();
     }
     @PostMapping("/v1/user")
-    public String addversion1(@RequestBody User1 u){
-        l1.add(u);
+    public String AddVersion1(@RequestBody User1 u){
+        ud.addUser1(u);
         return "user added";
     }
 
 
     @GetMapping("/v2/user")
-    public List<AdvanceUser>getadvanceversion1(){
-        return l2;
+    public List<AdvanceUser>GetAdvanceVersion1(){
+        return ud.getAdvanceUser();
     }
     @PostMapping("/v2/user")
-    public String addAdvanceversion1(@RequestBody AdvanceUser u){
-        l2.add(u);
+    public String AddAdvanceVersion1(@RequestBody AdvanceUser u){
+        ud.addAdvanceUser1(u);
         return "new user added";
     }
+
+
+    // via param
     @GetMapping(path="/v1/user",params = "version1")
-    public List<User1>getversion1Param(){
-        return l1;
+    public List<User1>GetVersion1Param(){
+        return ud.getUser1();
     }
 
     @GetMapping(path="/v2/user",params = "version2")
-    public List<AdvanceUser>getadvanceversion1Param(){
-        return l2;
+    public List<AdvanceUser>GetAdvanceVersion1Param(){
+        return ud.getAdvanceUser();
     }
 
+
+    // via  header
+
     @GetMapping(path="/user/header",headers = "API=1")
-    public List<User1>getversion1header(){
-        return l1;
+    public List<User1>GetVersion1Header(){
+        return ud.getUser1();
     }
 
     @GetMapping(path="/user/header",headers = "API=2")
-    public List<AdvanceUser>getadvanceversion1header(){
-        return l2;
+    public List<AdvanceUser>GetAdvanceVersion1Header(){
+        return ud.getAdvanceUser();
+    }
+
+
+
+    // via mime
+
+    @GetMapping(path="/user/mime",produces = "application/vnd.company.app-version1+json")
+    public List<User1>GetVersion1Mime(){
+        return ud.getUser1();
+    }
+
+    @GetMapping(path="/user/mime2",headers = "application/version2")
+    public List<AdvanceUser>GetAdvanceVersion1Mime(){
+        return ud.getAdvanceUser();
     }
 }
