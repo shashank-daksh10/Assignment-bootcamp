@@ -1,0 +1,2 @@
+in pertable and joined we have to make the id of main Payment class with @generated or else one data
+will be added to the table and then no data will be added.z

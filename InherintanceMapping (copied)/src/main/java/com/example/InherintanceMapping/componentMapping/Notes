@@ -1,0 +1,16 @@
+how to add data in Api:see below
+
+{
+    "id":1,
+    "firstName":"shashank",
+    "lastName":"daksh",
+    "age":21,
+    "pay":
+        {
+    "basicSalary":30000,
+    "bonusSalary":3000,
+    "taxAmount":350,
+    "specialAllowanceSalary":600
+        }
+
+}
